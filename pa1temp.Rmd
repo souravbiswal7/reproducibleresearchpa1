@@ -4,16 +4,6 @@ author: "sourav biswal"
 date: "4/1/2020"
 output: html_document
 ---
----
-title: "Reproducible Research Project 1"
-author: "Sourav Biswal"
-date: "30/03/2020"
-output:
-  md_document:
-    variant: markdown_github
----
-
-
 
 ## Introduction
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self” movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
@@ -35,3 +25,15 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 Unzip data to obtain a csv file.
 
 ```{r}
+library("data.table")
+library(ggplot2)
+
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+download.file(fileUrl, destfile = paste0(getwd(), '/repdata%2Fdata%2Factivity.zip'), method = "curl")
+unzip("repdata%2Fdata%2Factivity.zip",exdir = "data")
+```
+
+## Reading csv Data into Data.Table. 
+```{r}
+activityDT <- data.table::fread(input = "data/activity.csv")
+```
