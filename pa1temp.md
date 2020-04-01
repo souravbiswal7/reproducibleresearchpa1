@@ -4,11 +4,7 @@ author: "sourav biswal"
 date: "4/1/2020"
 output: html_document
 ---
----
-title: "Reproducible Research Project 1"
-author: "Sourav Biswal"
-date: "30/03/2020"
----
+
 
 
 Introduction
